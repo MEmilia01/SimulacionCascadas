@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0fe37af826f82148baa7c825d56d5d8, type: 3}
+  m_Name: SimulacionConfig
+  m_EditorClassIdentifier: Assembly-CSharp::SimulacionConfig
+  florPrb: {fileID: 1970459091427185804, guid: 2e05af6a3d3dc1f4cbbd1c80f20ffe59, type: 3}
+  polillaPrb: {fileID: 1521324794194013011, guid: cbf1697132daae240bf016865d291438, type: 3}
+  venusPrb: {fileID: 7793611359432981848, guid: 00faad17fd2343e4081d62bb5750b8c8, type: 3}
+  conejoPrb: {fileID: 8302436726919197891, guid: 40508c7b0cd623443a7a1807ca57ba9f, type: 3}
+  numIniP: 5
+  numIniV: 3
+  numIniC: 2
+  spawnradio: 20
+  aparicioncrias: 1.5
+  Pvidamax: 10
+  Pmovcost: 1
+  mothMoveTickInterval: 1
+  Penergiaganada: 4
+  Pratiodereproduccion: 8
+  Ponreproduccion: 1
+  Prepcost: 2
+  Pvision: 8
+  Vvidamax: 20
+  Vmovcost: 2
+  Venergiaganada: 5
+  venusReproduceThreshold: 5
+  Vrepcost: 1
+  venusReproduceCooldown: 5
+  Vvision: 3
+  Cvidamax: 10
+  Cmovcost: 2
+  rabbitMoveTickInterval: 1
+  Cenergiaganada: 5
+  Cratiodereproduccion: 4
+  rabbitMateWait: 2
+  Cvision: 10
+  masflores: 1
+  Ftimeaparicion: 3

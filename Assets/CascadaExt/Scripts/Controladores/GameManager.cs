@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 /// Controla el ciclo de la simulación: inicio, pausa, reinicio,
 /// spawn inicial de criaturas y conteo de población por especie.
 /// </summary>
+
+[DefaultExecutionOrder(-100)]
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }

@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 6753574163378460414}
   - component: {fileID: 4716436771496746405}
   - component: {fileID: 6021357514699361899}
-  m_Layer: 0
+  - component: {fileID: 1298693804909419204}
+  - component: {fileID: -3823680059557628915}
+  m_Layer: 10
   m_Name: Venus
-  m_TagString: Untagged
+  m_TagString: Venus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,3 +133,36 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1298693804909419204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793611359432981848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fac09a97b434dc0429bb9b9483778881, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Sensor
+  radius: 8
+  viewAngle: 360
+  defaultTargetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstructionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  eyeHeight: 0.3
+--- !u!114 &-3823680059557628915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793611359432981848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc5ae1bb4b0284f47bf2a836eb9e33b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reproducer

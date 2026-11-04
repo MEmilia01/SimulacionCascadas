@@ -12,7 +12,7 @@ public class FlorSpawner : MonoBehaviour
     [SerializeField] Transform holderflores; // opcional, para ordenar la jerarquía
 
     readonly List<GameObject> flores = new List<GameObject>();
-    int numflores;
+    public int numflores;
     Coroutine masflores;
 
     public int ActiveFlowers
