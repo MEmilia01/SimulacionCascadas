@@ -58,9 +58,9 @@ public class GameManager : MonoBehaviour
         enEjecucion = true;
 
         florsp.Spawn(flowerCount);
-        SpawnGroup(config.venusPrb, config.numIniV);
-        SpawnGroup(config.polillaPrb, config.numIniP);
-        SpawnGroup(config.conejoPrb, config.numIniC);
+        SpawnGroup(config.venusPrefab, config.initialVenus);
+        SpawnGroup(config.mothPrefab, config.initialMoths);
+        SpawnGroup(config.rabbitPrefab, config.initialRabbits);
     }
 
     public void TogglePause()
@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     void SpawnGroup(GameObject prefab, int count)
     {
         for (int i = 0; i < count; i++)
-            SpawnNear(prefab, florsp.transform.position, config.spawnradio);
+            SpawnNear(prefab, florsp.transform.position, config.spawnRadius);
     }
 
     /// <summary>Usado también por Reproducer para instanciar crías.</summary>

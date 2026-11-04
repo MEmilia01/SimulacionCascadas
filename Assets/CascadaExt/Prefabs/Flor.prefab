@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4445156966243413307}
   - component: {fileID: 2860543806882805912}
   - component: {fileID: 9136629284929673850}
+  - component: {fileID: 9213230640133845116}
   m_Layer: 8
   m_Name: Flor
   m_TagString: Flores
@@ -112,3 +113,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9213230640133845116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970459091427185804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2493ea6ef4cc9d141b5a36c1b907cb7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Flower

@@ -48,7 +48,7 @@ public class Reproducer : MonoBehaviour
     public GameObject SpawnChild(GameObject prefab, float childLife = -1f)
     {
         var gm = GameManager.Instance;
-        GameObject child = gm.SpawnNear(prefab, transform.position, gm.Config.spawnradio);
+        GameObject child = gm.SpawnNear(prefab, transform.position, gm.Config.childSpawnRadius);
         if (child == null) return null;
 
         if (childLife >= 0f && child.TryGetComponent(out Creature creature))

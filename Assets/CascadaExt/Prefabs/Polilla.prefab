@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 4296776290065886870}
   - component: {fileID: 3033160393846559913}
   - component: {fileID: 1526142486350755662}
+  - component: {fileID: 6525508289493009947}
+  - component: {fileID: 8656388608824619725}
   m_Layer: 9
   m_Name: Polilla
   m_TagString: Polillas
@@ -190,11 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac09a97b434dc0429bb9b9483778881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sensor
-  radius: 8
+  radius: 4
   viewAngle: 360
   defaultTargetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 768
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -211,3 +213,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5ae1bb4b0284f47bf2a836eb9e33b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reproducer
+--- !u!114 &6525508289493009947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521324794194013011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249e0ca472955834c8e9902d0fc94eab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Moth
+--- !u!114 &8656388608824619725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521324794194013011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3482dc9402c7b254f8505aaba3740501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PolComp

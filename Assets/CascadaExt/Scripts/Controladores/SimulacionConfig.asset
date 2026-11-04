@@ -12,36 +12,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0fe37af826f82148baa7c825d56d5d8, type: 3}
   m_Name: SimulacionConfig
   m_EditorClassIdentifier: Assembly-CSharp::SimulacionConfig
-  florPrb: {fileID: 1970459091427185804, guid: 2e05af6a3d3dc1f4cbbd1c80f20ffe59, type: 3}
-  polillaPrb: {fileID: 1521324794194013011, guid: cbf1697132daae240bf016865d291438, type: 3}
-  venusPrb: {fileID: 7793611359432981848, guid: 00faad17fd2343e4081d62bb5750b8c8, type: 3}
-  conejoPrb: {fileID: 8302436726919197891, guid: 40508c7b0cd623443a7a1807ca57ba9f, type: 3}
-  numIniP: 5
-  numIniV: 3
-  numIniC: 2
-  spawnradio: 20
-  aparicioncrias: 1.5
-  Pvidamax: 10
-  Pmovcost: 1
+  flowerPrefab: {fileID: 1970459091427185804, guid: 2e05af6a3d3dc1f4cbbd1c80f20ffe59, type: 3}
+  mothPrefab: {fileID: 1521324794194013011, guid: cbf1697132daae240bf016865d291438, type: 3}
+  venusPrefab: {fileID: 7793611359432981848, guid: 00faad17fd2343e4081d62bb5750b8c8, type: 3}
+  rabbitPrefab: {fileID: 8302436726919197891, guid: 40508c7b0cd623443a7a1807ca57ba9f, type: 3}
+  initialMoths: 5
+  initialVenus: 3
+  initialRabbits: 2
+  spawnRadius: 20
+  childSpawnRadius: 1.5
+  wanderRadius: 8
+  thinkInterval: 0.2
+  mothMaxLife: 30
+  mothMoveCost: 1
   mothMoveTickInterval: 1
-  Penergiaganada: 4
-  Pratiodereproduccion: 8
-  Ponreproduccion: 1
-  Prepcost: 2
-  Pvision: 8
-  Vvidamax: 20
-  Vmovcost: 2
-  Venergiaganada: 5
-  venusReproduceThreshold: 5
-  Vrepcost: 1
+  mothFlowerGain: 5
+  mothReproduceThreshold: 6
+  mothReproduceWhenAbove: 1
+  mothReproduceCost: 2
+  mothVisionRadius: 8
+  mothEatDistance: 1.2
+  mothFearDuration: 5
+  mothFleeDistance: 6
+  mothChildLife: 5
+  mothMateWait: 1
+  mothReproduceCooldown: 3
+  mothMaxPopulation: 60
+  venusMaxLife: 20
+  venusEatCost: 2
+  venusMothGain: 3
+  venusReproduceThreshold: 11
+  venusReproduceGain: 1
   venusReproduceCooldown: 5
-  Vvision: 3
-  Cvidamax: 10
-  Cmovcost: 2
-  rabbitMoveTickInterval: 1
-  Cenergiaganada: 5
-  Cratiodereproduccion: 4
+  venusSenseRadius: 3
+  venusEatRadius: 1
+  venusCatchChance: 0.8
+  venusChildLife: 5
+  venusMaxPopulation: 30
+  rabbitMaxLife: 30
+  rabbitMoveCost: 1
+  rabbitMoveTickInterval: 0.5
+  rabbitVenusGain: 3
+  rabbitHungerThreshold: 5
   rabbitMateWait: 2
-  Cvision: 10
-  masflores: 1
-  Ftimeaparicion: 3
+  rabbitVisionRadius: 15
+  rabbitBiteDamage: 20
+  rabbitEatRadius: 2
+  rabbitReproduceCost: 6
+  rabbitReproduceCooldown: 3
+  rabbitChildLife: 5
+  rabbitMaxPopulation: 30
+  respawnFlowers: 1
+  flowerRespawnInterval: 3

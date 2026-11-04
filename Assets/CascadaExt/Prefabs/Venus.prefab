@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 6021357514699361899}
   - component: {fileID: 1298693804909419204}
   - component: {fileID: -3823680059557628915}
+  - component: {fileID: -5103886943173794895}
+  - component: {fileID: -348554029582714789}
   m_Layer: 10
   m_Name: Venus
   m_TagString: Venus
@@ -145,11 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac09a97b434dc0429bb9b9483778881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sensor
-  radius: 8
+  radius: 2.5
   viewAngle: 360
   defaultTargetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1536
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -166,3 +168,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5ae1bb4b0284f47bf2a836eb9e33b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reproducer
+--- !u!114 &-5103886943173794895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793611359432981848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9869454a1aea19b4396ee3f335c72c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Venus
+--- !u!114 &-348554029582714789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7793611359432981848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e27b2169bdf908045b4cf6015f8be2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VenusBrain

@@ -1,52 +1,75 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SimulacionConfig", menuName = "Scriptable Objects/SimulacionConfig")]
+/// <summary>
+/// Todos los parámetros de balance en un solo asset.
+/// Crear con: Click derecho en Assets/Config > Create > Simulation > Config
+/// </summary>
+[CreateAssetMenu(fileName = "SimulationConfig", menuName = "Simulation/Config")]
 public class SimulacionConfig : ScriptableObject
 {
     [Header("Prefabs")]
-    public GameObject florPrb;
-    public GameObject polillaPrb;
-    public GameObject venusPrb;
-    public GameObject conejoPrb;
+    public GameObject flowerPrefab;
+    public GameObject mothPrefab;
+    public GameObject venusPrefab;
+    public GameObject rabbitPrefab;
 
     [Header("Población inicial")]
-    public int numIniP = 5;
-    public int numIniV = 3;
-    public int numIniC = 2;
+    public int initialMoths = 5;
+    public int initialVenus = 3;
+    public int initialRabbits = 2;
 
     [Header("Mundo")]
-    public float spawnradio = 20f;       // radio alrededor del centro del mapa
-    public float aparicioncrias = 1.5f; // dónde aparecen las crías
+    public float spawnRadius = 20f;
+    public float childSpawnRadius = 1.5f;
+    public float wanderRadius = 8f;        // NUEVO: radio al vagar
+    public float thinkInterval = 0.2f;     // NUEVO: cada cuánto "piensan" los cerebros
 
     [Header("Polilla")]
-    public float Pvidamax = 10f;
-    public float Pmovcost = 1f;          // vida perdida por tick de movimiento
-    public float mothMoveTickInterval = 1f;  // cada cuántos segundos de movimiento
-    public float Penergiaganada = 4f;
-    public float Pratiodereproduccion = 8f; // revisa tu regla: ¿< o > ?
-    public bool Ponreproduccion = true;
-    public float Prepcost = 2f;
-    public float Pvision = 8f;
+    public float mothMaxLife = 10f;
+    public float mothMoveCost = 1f;
+    public float mothMoveTickInterval = 1f;
+    public float mothFlowerGain = 4f;
+    public float mothReproduceThreshold = 8f;
+    public bool mothReproduceWhenAbove = true;
+    public float mothReproduceCost = 2f;
+    public float mothVisionRadius = 8f;
+    public float mothEatDistance = 1.2f;         // NUEVO
+    public float mothFearDuration = 5f;          // NUEVO: segundos huyendo tras ver una muerte
+    public float mothFleeDistance = 6f;          // NUEVO
+    public float mothChildLife = 5f;             // NUEVO
+    public float mothMateWait = 1f;              // NUEVO
+    public float mothReproduceCooldown = 5f;     // NUEVO
+    public int mothMaxPopulation = 60;         // NUEVO: tope para evitar explosiones
 
     [Header("Venus")]
-    public float Vvidamax = 20f;
-    public float Vmovcost = 2f;
-    public float Venergiaganada = 5f;
-    public float venusReproduceThreshold = 5f; // se reproduce si vida > umbral
-    public float Vrepcost = 1f;
+    public float venusMaxLife = 20f;
+    public float venusEatCost = 2f;
+    public float venusMothGain = 5f;
+    public float venusReproduceThreshold = 5f;
+    public float venusReproduceGain = 1f;
     public float venusReproduceCooldown = 5f;
-    public float Vvision = 3f;
+    public float venusSenseRadius = 3f;
+    public float venusEatRadius = 1.5f;          // NUEVO (<= senseRadius)
+    [Range(0f, 1f)] public float venusCatchChance = 0.7f; // NUEVO: prob. de "casar" con una polilla que pasa
+    public float venusChildLife = 10f;           // NUEVO
+    public int venusMaxPopulation = 30;        // NUEVO
 
     [Header("Conejo")]
-    public float Cvidamax = 10f;
-    public float Cmovcost = 2f;
+    public float rabbitMaxLife = 10f;
+    public float rabbitMoveCost = 2f;
     public float rabbitMoveTickInterval = 1f;
-    public float Cenergiaganada = 5f;
-    public float Cratiodereproduccion = 4f; // si vida < umbral -> come
+    public float rabbitVenusGain = 5f;
+    public float rabbitHungerThreshold = 4f;
     public float rabbitMateWait = 2f;
-    public float Cvision = 10f;
+    public float rabbitVisionRadius = 10f;
+    public float rabbitBiteDamage = 5f;          // NUEVO: daño que hace a la Venus
+    public float rabbitEatRadius = 2f;           // NUEVO (>= radio del obstáculo + stoppingDistance)
+    public float rabbitReproduceCost = 3f;       // NUEVO
+    public float rabbitReproduceCooldown = 6f;   // NUEVO
+    public float rabbitChildLife = 5f;           // NUEVO
+    public int rabbitMaxPopulation = 30;       // NUEVO
 
     [Header("Flores")]
-    public bool masflores = true;
-    public float Ftimeaparicion = 3f;
+    public bool respawnFlowers = true;
+    public float flowerRespawnInterval = 3f;
 }

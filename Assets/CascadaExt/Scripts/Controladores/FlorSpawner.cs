@@ -27,7 +27,7 @@ public class FlorSpawner : MonoBehaviour
         for (int i = 0; i < numflores; i++) SpawnOne();
 
         if (masflores != null) StopCoroutine(masflores);
-        if (config.masflores) masflores = StartCoroutine(RespawnLoop());
+        if (config.respawnFlowers) masflores = StartCoroutine(RespawnLoop());
     }
 
     /// <summary>Cambiar el objetivo en caliente (slider/input durante la partida).</summary>
@@ -35,7 +35,7 @@ public class FlorSpawner : MonoBehaviour
 
     IEnumerator RespawnLoop()
     {
-        var wait = new WaitForSeconds(config.Ftimeaparicion);
+        var wait = new WaitForSeconds(config.flowerRespawnInterval);
         while (true)
         {
             yield return wait;
@@ -45,8 +45,8 @@ public class FlorSpawner : MonoBehaviour
 
     void SpawnOne()
     {
-        if (!NavMesh.RandomPoint(transform.position, config.spawnradio, out Vector3 pos)) return;
-        flores.Add(Instantiate(config.florPrb, pos, Quaternion.identity, holderflores));
+        if (!NavMesh.RandomPoint(transform.position, config.spawnRadius, out Vector3 pos)) return;
+        flores.Add(Instantiate(config.flowerPrefab, pos, Quaternion.identity, holderflores));
     }
 
     public void ClearAll()

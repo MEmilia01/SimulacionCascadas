@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 8634441411142177114}
   - component: {fileID: -4741272441565751866}
   - component: {fileID: -1254752942574426648}
+  - component: {fileID: -4970921886786333889}
+  - component: {fileID: -1217662478905513765}
   m_Layer: 11
   m_Name: Conejo
   m_TagString: Conejos
@@ -165,7 +167,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &8634441411142177114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,11 +192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac09a97b434dc0429bb9b9483778881, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sensor
-  radius: 8
+  radius: 1.5
   viewAngle: 360
   defaultTargetMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3072
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -211,3 +213,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5ae1bb4b0284f47bf2a836eb9e33b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reproducer
+--- !u!114 &-4970921886786333889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302436726919197891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 879e74e41f373c54fb24909770bfcef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rabbit
+--- !u!114 &-1217662478905513765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8302436726919197891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8e6458b56e73c4085c8d00ef5a9059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ConComp
