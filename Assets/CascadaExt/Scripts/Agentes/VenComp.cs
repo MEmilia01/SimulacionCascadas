@@ -61,12 +61,16 @@ public class VenusBrain : MonoBehaviour
 
             if (!decisions[moth]) continue;
 
-            float d = Vector3.Distance(transform.position, moth.transform.position);
+            Collider mc = moth.GetComponentInChildren<Collider>();
+            Vector3 edge = mc != null ? mc.ClosestPoint(transform.position) : moth.transform.position;
+            float d = Vector3.Distance(transform.position, edge);
+
             if (d <= cfg.venusEatRadius)
             {
                 moth.GetEaten();
                 venus.ChangeLife(cfg.venusMothGain - cfg.venusEatCost); // +5 y -2 en una sola operación
                 decisions.Remove(moth);
+                Debug.Log("Se comio a "+ moth.name);
                 break; // máximo una polilla por ciclo
             }
         }

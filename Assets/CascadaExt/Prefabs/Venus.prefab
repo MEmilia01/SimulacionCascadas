@@ -128,7 +128,7 @@ NavMeshObstacle:
   m_GameObject: {fileID: 7793611359432981848}
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 0
+  m_Shape: 1
   m_Extents: {x: 0.5, y: 1, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   viewAngle: 360
   defaultTargetMask:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 512
   obstructionMask:
     serializedVersion: 2
     m_Bits: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5ae1bb4b0284f47bf2a836eb9e33b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reproducer
+  contactMargin: 0.3
 --- !u!114 &-5103886943173794895
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,7 +10,8 @@ public class Flower : MonoBehaviour
     {
         if (consumed) return false;
         consumed = true;
-        Destroy(gameObject);
+        Destroy(this.gameObject);
+        Debug.Log("la flor comida es: " + this.gameObject.name);
         return true;
     }
 }

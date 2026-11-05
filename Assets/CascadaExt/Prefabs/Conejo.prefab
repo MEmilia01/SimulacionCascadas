@@ -166,8 +166,8 @@ NavMeshAgent:
   m_AutoRepath: 1
   m_Height: 1
   m_BaseOffset: 0.5
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 2
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &8634441411142177114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sensor
   radius: 1.5
-  viewAngle: 360
+  viewAngle: 165
   defaultTargetMask:
     serializedVersion: 2
     m_Bits: 3072
@@ -213,6 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5ae1bb4b0284f47bf2a836eb9e33b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reproducer
+  contactMargin: 0.3
 --- !u!114 &-4970921886786333889
 MonoBehaviour:
   m_ObjectHideFlags: 0

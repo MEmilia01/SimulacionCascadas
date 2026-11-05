@@ -21,6 +21,7 @@ public class SimulacionConfig : ScriptableObject
     [Header("Mundo")]
     public float spawnRadius = 20f;
     public float childSpawnRadius = 1.5f;
+    public float venusChildSpawnRadius = 3f;
     public float wanderRadius = 8f;        // NUEVO: radio al vagar
     public float thinkInterval = 0.2f;     // NUEVO: cada cuánto "piensan" los cerebros
 
