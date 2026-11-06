@@ -21,11 +21,11 @@ MonoBehaviour:
   initialRabbits: 2
   spawnRadius: 20
   childSpawnRadius: 1.5
-  venusChildSpawnRadius: 5
+  venusChildSpawnRadius: 10
   wanderRadius: 8
   thinkInterval: 0.2
   mothMaxLife: 30
-  mothMoveCost: 1
+  mothMoveCost: 0.8
   mothMoveTickInterval: 1
   mothFlowerGain: 5
   mothReproduceThreshold: 10
@@ -40,7 +40,7 @@ MonoBehaviour:
   mothReproduceCooldown: 5
   mothMaxPopulation: 30
   venusMaxLife: 15
-  venusEatCost: 2
+  venusEatCost: 1
   venusMothGain: 5
   venusReproduceThreshold: 8
   venusReproduceGain: 1
@@ -51,7 +51,7 @@ MonoBehaviour:
   venusChildLife: 10
   venusMaxPopulation: 30
   rabbitMaxLife: 30
-  rabbitMoveCost: 0.5
+  rabbitMoveCost: 0.3
   rabbitMoveTickInterval: 0.5
   rabbitVenusGain: 10
   rabbitHungerThreshold: 10
