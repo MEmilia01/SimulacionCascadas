@@ -1,20 +1,27 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CanvasInt : MonoBehaviour
 {
-    public InputField obtencionnumflores;
+    public TMP_InputField obtencionnumflores;
 
     [SerializeField] int flowers = 15;
 
     void Start()
     {
-        GameManager.Instance.StartSimulation(flowers);
+        obtencionnumflores.onEndEdit.AddListener(GuardarTexto);
+        //el valor por defecto es 15
+        GameManager.Instance.StartSimulation(15);
     }
 
-    // Update is called once per frame
+    void GuardarTexto(string texto)
+    {
+        flowers = int.Parse(texto);
+        Debug.Log("Texto ingresado (TMP): " + texto);
+    }
     void Update()
     {
-        
+        obtencionnumflores.onEndEdit.AddListener(GuardarTexto);
     }
 }
