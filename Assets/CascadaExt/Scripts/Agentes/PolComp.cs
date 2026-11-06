@@ -143,7 +143,7 @@ public class PolComp : MonoBehaviour
 
     void OnMatingFinished()
     {
-        repro.SpawnChild(cfg.mothPrefab, cfg.mothChildLife);
+        repro.SpawnChild(cfg.polillaPrb, cfg.mothChildLife);
         repro.StartCooldown(cfg.mothReproduceCooldown);
         EnterState(State.Wander);
     }

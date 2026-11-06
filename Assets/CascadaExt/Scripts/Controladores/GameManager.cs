@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
+        config = Instantiate(config);
         Time.timeScale = 1f;
     }
 
@@ -58,9 +59,9 @@ public class GameManager : MonoBehaviour
         enEjecucion = true;
 
         florsp.Spawn(flowerCount);
-        SpawnGroup(config.venusPrefab, config.initialVenus);
-        SpawnGroup(config.mothPrefab, config.initialMoths);
-        SpawnGroup(config.rabbitPrefab, config.initialRabbits);
+        SpawnGroup(config.venusPrb, config.venusinicio);
+        SpawnGroup(config.polillaPrb, config.polillasinicio);
+        SpawnGroup(config.conejoPrb, config.conejosinicio);
     }
 
     public void TogglePause()

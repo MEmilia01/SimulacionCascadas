@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0fe37af826f82148baa7c825d56d5d8, type: 3}
   m_Name: SimulacionConfig
   m_EditorClassIdentifier: Assembly-CSharp::SimulacionConfig
-  flowerPrefab: {fileID: 1970459091427185804, guid: 2e05af6a3d3dc1f4cbbd1c80f20ffe59, type: 3}
-  mothPrefab: {fileID: 1521324794194013011, guid: cbf1697132daae240bf016865d291438, type: 3}
-  venusPrefab: {fileID: 7793611359432981848, guid: 00faad17fd2343e4081d62bb5750b8c8, type: 3}
-  rabbitPrefab: {fileID: 8302436726919197891, guid: 40508c7b0cd623443a7a1807ca57ba9f, type: 3}
-  initialMoths: 5
-  initialVenus: 3
-  initialRabbits: 2
+  florPrb: {fileID: 1970459091427185804, guid: 2e05af6a3d3dc1f4cbbd1c80f20ffe59, type: 3}
+  polillaPrb: {fileID: 1521324794194013011, guid: cbf1697132daae240bf016865d291438, type: 3}
+  venusPrb: {fileID: 7793611359432981848, guid: 00faad17fd2343e4081d62bb5750b8c8, type: 3}
+  conejoPrb: {fileID: 8302436726919197891, guid: 40508c7b0cd623443a7a1807ca57ba9f, type: 3}
+  polillasinicio: 5
+  venusinicio: 3
+  conejosinicio: 2
   spawnRadius: 20
   childSpawnRadius: 1.5
   venusChildSpawnRadius: 10

@@ -82,7 +82,7 @@ public class VenusBrain : MonoBehaviour
         if (venus.Life <= cfg.venusReproduceThreshold) return;
         if (GameManager.Instance.GetPopulation(Species.venus) >= cfg.venusMaxPopulation) return;
 
-        GameObject child = repro.SpawnChild(cfg.venusPrefab, cfg.venusChildLife);
+        GameObject child = repro.SpawnChild(cfg.venusPrb, cfg.venusChildLife);
         if (child == null) return; // no hubo hueco en el NavMesh
 
         venus.ChangeLife(cfg.venusReproduceGain);

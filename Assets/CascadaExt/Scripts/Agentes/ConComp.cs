@@ -107,7 +107,7 @@ public class ConComp : MonoBehaviour
 
     void OnMatingFinished()
     {
-        repro.SpawnChild(cfg.rabbitPrefab, cfg.rabbitChildLife);
+        repro.SpawnChild(cfg.conejoPrb, cfg.rabbitChildLife);
         repro.StartCooldown(cfg.rabbitReproduceCooldown);
         GoWander();
     }

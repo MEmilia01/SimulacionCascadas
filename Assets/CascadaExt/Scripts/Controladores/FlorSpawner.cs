@@ -13,7 +13,9 @@ public class FlorSpawner : MonoBehaviour
 
     readonly List<GameObject> flores = new List<GameObject>();
     public int numflores;
+    public float respawnInterval;
     Coroutine masflores;
+    
 
     public int ActiveFlowers
     {
@@ -31,7 +33,8 @@ public class FlorSpawner : MonoBehaviour
     }
 
     /// <summary>Cambiar el objetivo en caliente (slider/input durante la partida).</summary>
-    public void SetTarget(int count) => numflores = Mathf.Max(0, count);
+    public void SetRespawnInterval(float seconds) => respawnInterval = Mathf.Max(0.05f, seconds);
+
 
     IEnumerator RespawnLoop()
     {
@@ -46,7 +49,7 @@ public class FlorSpawner : MonoBehaviour
     void SpawnOne()
     {
         if (!NavMesh.RandomPoint(transform.position, config.spawnRadius, out Vector3 pos)) return;
-        flores.Add(Instantiate(config.flowerPrefab, pos, Quaternion.identity, holderflores));
+        flores.Add(Instantiate(config.florPrb, pos, Quaternion.identity, holderflores));
     }
 
     public void ClearAll()

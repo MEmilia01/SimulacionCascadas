@@ -1,22 +1,18 @@
 using UnityEngine;
 
-/// <summary>
-/// Todos los parámetros de balance en un solo asset.
-/// Crear con: Click derecho en Assets/Config > Create > Simulation > Config
-/// </summary>
 [CreateAssetMenu(fileName = "SimulationConfig", menuName = "Simulation/Config")]
 public class SimulacionConfig : ScriptableObject
 {
     [Header("Prefabs")]
-    public GameObject flowerPrefab;
-    public GameObject mothPrefab;
-    public GameObject venusPrefab;
-    public GameObject rabbitPrefab;
+    public GameObject florPrb;
+    public GameObject polillaPrb;
+    public GameObject venusPrb;
+    public GameObject conejoPrb;
 
     [Header("Población inicial")]
-    public int initialMoths = 5;
-    public int initialVenus = 3;
-    public int initialRabbits = 2;
+    public int polillasinicio = 5;
+    public int venusinicio = 3;
+    public int conejosinicio = 2;
 
     [Header("Mundo")]
     public float spawnRadius = 20f;
