@@ -12,7 +12,8 @@ public class VenusBrain : MonoBehaviour
     int mothMask;
     float nextThink;
     float upkeepTimer;   // temporizador del gasto por hambre
-    float lastMealTime;  // NUEVO: cuándo comió (o nació) por última vez
+    float lastMealTime;  
+    float lastCatchChance = -1f;
 
     readonly List<Polilla> nearby = new List<Polilla>();
     readonly List<Polilla> toRemove = new List<Polilla>();
@@ -67,8 +68,13 @@ public class VenusBrain : MonoBehaviour
 
     void HandleMoths()
     {
-        sensor.GetAll(nearby, mothMask);
+        if (!Mathf.Approximately(lastCatchChance, cfg.venusCatchChance))
+        {
+            decisions.Clear();                       // las decisiones antiguas usaban otra probabilidad
+            lastCatchChance = cfg.venusCatchChance;
+        }
 
+        sensor.GetAll(nearby, mothMask);
         // Olvida decisiones de polillas que ya se fueron o murieron
         toRemove.Clear();
         foreach (var kv in decisions)
