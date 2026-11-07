@@ -1,10 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// La Venus no se mueve. Cuando una polilla se acerca, decide una sola vez si la "casa" (la come).
-/// Además intenta reproducirse siempre que pueda.
-/// </summary>
+
 [RequireComponent(typeof(Venus), typeof(Sensor), typeof(Reproducer))]
 public class VenusBrain : MonoBehaviour
 {
@@ -14,6 +11,8 @@ public class VenusBrain : MonoBehaviour
     SimulacionConfig cfg;
     int mothMask;
     float nextThink;
+    float upkeepTimer;   // temporizador del gasto por hambre
+    float lastMealTime;  // NUEVO: cuándo comió (o nació) por última vez
 
     readonly List<Polilla> nearby = new List<Polilla>();
     readonly List<Polilla> toRemove = new List<Polilla>();
@@ -36,11 +35,34 @@ public class VenusBrain : MonoBehaviour
 
     void Update()
     {
-        if (cfg == null || venus.IsDead || Time.time < nextThink) return;
+        if (cfg == null || venus.IsDead) return;
+
+        ApplyUpkeep();
+        if (venus.IsDead) return; // pudo morir de hambre en este mismo frame
+
+        if (Time.time < nextThink) return;
         nextThink = Time.time + cfg.thinkInterval;
 
         HandleMoths();
         TryReproduce();
+    }
+
+    void ApplyUpkeep()
+    {
+        if (cfg.venusUpkeepCost <= 0f) return;
+
+        if (Time.time - lastMealTime < cfg.venusGracePeriod)
+        {
+            upkeepTimer = 0f;
+            return;
+        }
+
+        upkeepTimer += Time.deltaTime;
+        if (upkeepTimer >= cfg.venusUpkeepInterval)
+        {
+            upkeepTimer -= cfg.venusUpkeepInterval;
+            venus.ChangeLife(-cfg.venusUpkeepCost);
+        }
     }
 
     void HandleMoths()
@@ -68,10 +90,11 @@ public class VenusBrain : MonoBehaviour
             if (d <= cfg.venusEatRadius)
             {
                 moth.GetEaten();
-                venus.ChangeLife(cfg.venusMothGain - cfg.venusEatCost); // +5 y -2 en una sola operación
+                venus.ChangeLife(cfg.venusMothGain - cfg.venusEatCost); 
                 decisions.Remove(moth);
+                lastMealTime = Time.time;
                 Debug.Log("Se comio a "+ moth.name);
-                break; // máximo una polilla por ciclo
+                break; 
             }
         }
     }
@@ -83,7 +106,7 @@ public class VenusBrain : MonoBehaviour
         if (GameManager.Instance.GetPopulation(Species.venus) >= cfg.venusMaxPopulation) return;
 
         GameObject child = repro.SpawnChild(cfg.venusPrb, cfg.venusChildLife);
-        if (child == null) return; // no hubo hueco en el NavMesh
+        if (child == null) return; 
 
         venus.ChangeLife(cfg.venusReproduceGain);
         repro.StartCooldown(cfg.venusReproduceCooldown);

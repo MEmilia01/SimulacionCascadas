@@ -1,8 +1,6 @@
 using UnityEngine;
 
-/// <summary>
-/// FSM de la polilla: Wander -> GoToFlower -> (Mating) ... y Flee si ve morir a otra polilla.
-/// </summary>
+//flee es huir
 [RequireComponent(typeof(Polilla), typeof(AgentMov), typeof(Sensor))]
 [RequireComponent(typeof(Reproducer))]
 public class PolComp : MonoBehaviour
@@ -51,11 +49,9 @@ public class PolComp : MonoBehaviour
             case State.Wander: UpdateWander(); break;
             case State.GoToFlower: UpdateGoToFlower(); break;
             case State.Flee: UpdateFlee(); break;
-                // Mating: espera a que termine el Reproducer
         }
     }
 
-    // ---------- Estados ----------
     void UpdateWander()
     {
         if (TryReproduce()) return;
@@ -96,7 +92,6 @@ public class PolComp : MonoBehaviour
         if (mover.HasArrived) Flee();
     }
 
-    // ---------- Acciones ----------
     void EnterState(State s)
     {
         state = s;
@@ -108,7 +103,6 @@ public class PolComp : MonoBehaviour
         }
     }
 
-    /// <summary>Huye en dirección contraria a la Venus o flor más cercana (o al lugar del suceso).</summary>
     void Flee()
     {
         Vector3 source = fearOrigin;
@@ -148,7 +142,6 @@ public class PolComp : MonoBehaviour
         EnterState(State.Wander);
     }
 
-    // ---------- Evento: otra polilla ha sido comida ----------
     void HandleMothEaten(Vector3 position)
     {
         if (cfg == null || moth.IsDead || state == State.Mating) return;

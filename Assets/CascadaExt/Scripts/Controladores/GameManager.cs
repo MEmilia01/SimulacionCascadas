@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// Controla el ciclo de la simulación: inicio, pausa, reinicio,
-/// spawn inicial de criaturas y conteo de población por especie.
-/// </summary>
 
 [DefaultExecutionOrder(-100)]
 
@@ -27,7 +23,6 @@ public class GameManager : MonoBehaviour
         { Species.polilla, 0 }, { Species.venus, 0 }, { Species.conejo, 0 }
     };
 
-    /// <summary>La UI (StatsPanel) se suscribe aquí para refrescar contadores.</summary>
     public event Action poblacioncambiando;
 
     void Awake()
@@ -52,7 +47,6 @@ public class GameManager : MonoBehaviour
 
     public int GetPopulation(Species s) => poblacion[s];
 
-    // ---------- Ciclo ----------
     public void StartSimulation(int flowerCount)
     {
         if (enEjecucion) return;
@@ -76,21 +70,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    // ---------- Spawn ----------
     void SpawnGroup(GameObject prefab, int count)
     {
         for (int i = 0; i < count; i++)
             SpawnNear(prefab, florsp.transform.position, config.spawnRadius);
     }
 
-    /// <summary>Usado también por Reproducer para instanciar crías.</summary>
     public GameObject SpawnNear(GameObject prefab, Vector3 center, float radius)
     {
         if (!NavMesh.RandomPoint(center, radius, out Vector3 pos)) return null;
         return Instantiate(prefab, pos, Quaternion.identity, holdercriaturas);
     }
 
-    // ---------- Población ----------
     void HandleBorn(Species s) { poblacion[s]++; poblacioncambiando?.Invoke(); }
     void HandleDied(Species s, Vector3 _) { poblacion[s] = Mathf.Max(0, poblacion[s] - 1); poblacioncambiando?.Invoke(); }
 }

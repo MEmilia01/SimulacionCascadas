@@ -2,10 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// Lógica común de reproducción: cooldown, estado "apareándose" (con pausa del agente)
-/// y creación de la cría. Los cerebros deciden CUÁNDO; esto decide CÓMO.
-/// </summary>
+
 public class Reproducer : MonoBehaviour
 {
     [Header("Contacto")]
@@ -19,7 +16,6 @@ public class Reproducer : MonoBehaviour
 
     public bool IsMating { get; private set; }
     public bool IsOnCooldown => Time.time < cooldownEnd;
-    /// <summary>Libre para reproducirse: ni apareándose ni en cooldown.</summary>
     public bool IsAvailable => !IsMating && !IsOnCooldown;
 
     void Awake()
@@ -30,12 +26,6 @@ public class Reproducer : MonoBehaviour
 
     public void StartCooldown(float seconds) => cooldownEnd = Time.time + seconds;
 
-    // ---------- Contacto ----------
-
-    /// <summary>
-    /// Busca otro individuo de LA MISMA ESPECIE (misma Layer) que esté tocando a este
-    /// y que esté libre para reproducirse. Devuelve null si no hay ninguno.
-    /// </summary>
     public Reproducer FindTouchingPartner()
     {
         if (ownCollider == null) return null;
@@ -55,21 +45,11 @@ public class Reproducer : MonoBehaviour
         return null;
     }
 
-    /// <summary>
-    /// Pone a la pareja en pausa 'duration' segundos y le aplica el cooldown al terminar.
-    /// La pareja no crea cría: solo la crea quien inició el apareamiento.
-    /// </summary>
     public void HoldAsPartner(float duration, float cooldownAfter)
     {
         BeginMating(duration, () => StartCooldown(cooldownAfter));
     }
 
-    // ---------- Apareamiento ----------
-
-    /// <summary>
-    /// Entra en estado de apareamiento durante 'duration' segundos.
-    /// Si tiene AgentMov, se detiene y se reanuda al terminar.
-    /// </summary>
     public void BeginMating(float duration, Action onFinished = null)
     {
         if (IsMating) return;
@@ -88,9 +68,6 @@ public class Reproducer : MonoBehaviour
         onFinished?.Invoke();
     }
 
-    /// <summary>
-    /// Crea una cría cerca. childLife &lt; 0 = vida máxima de la especie.
-    /// </summary>
     public GameObject SpawnChild(GameObject prefab, float childLife = -1f)
     {
         var gm = GameManager.Instance;

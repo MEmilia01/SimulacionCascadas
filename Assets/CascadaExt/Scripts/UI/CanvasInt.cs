@@ -23,7 +23,7 @@ public class CanvasInt : MonoBehaviour
     {
         cfg = GameManager.Instance.Config;
 
-        // --- Slider de Venus Catch Chance ---
+        // --- Slider valores ---
         proatraparpolilla.minValue = 0f;
         proatraparpolilla.maxValue = 1f;
         proatraparpolilla.wholeNumbers = false;
@@ -31,14 +31,14 @@ public class CanvasInt : MonoBehaviour
         VisualizarProbabilidad(cfg.venusCatchChance);
         proatraparpolilla.onValueChanged.AddListener(CamProbabilidadVenus);
 
-        // --- Input de Rabbit Bite Damage ---
+        
         ataqueconejo.SetTextWithoutNotify(cfg.rabbitBiteDamage.ToString(CultureInfo.InvariantCulture));
         ataqueconejo.onEndEdit.AddListener(DañoConejo);
 
-        // --- Input de intervalo de flores ---
+        
         tiempoespera.onEndEdit.AddListener(GuardarTexto);
 
-        GameManager.Instance.StartSimulation(15); // valor por defecto
+        GameManager.Instance.StartSimulation(40); // valor por defecto
     }
 
     void OnDestroy()
@@ -48,7 +48,7 @@ public class CanvasInt : MonoBehaviour
         proatraparpolilla.onValueChanged.RemoveListener(CamProbabilidadVenus);
     }
 
-    // ---------- Intervalo de flores ----------
+    
     void GuardarTexto(string texto)
     {
         if (!DeStringaNum(texto, out float intervalo) || intervalo <= 0f)
@@ -61,7 +61,7 @@ public class CanvasInt : MonoBehaviour
         Debug.Log("Intervalo de flores: " + intervalo);
     }
 
-    // ---------- Venus Catch Chance (slider) ----------
+    
     void CamProbabilidadVenus(float valor)
     {
         cfg.venusCatchChance = valor;
@@ -74,7 +74,7 @@ public class CanvasInt : MonoBehaviour
             mostrarprobabilidad.text = Mathf.RoundToInt(valor * 100f) + "%";
     }
 
-    // ---------- Rabbit Bite Damage (input) ----------
+    
     void DañoConejo(string texto)
     {
         if (!DeStringaNum(texto, out float dano) || dano <= 0f)
@@ -89,8 +89,6 @@ public class CanvasInt : MonoBehaviour
         Debug.Log("Daño del mordisco del conejo: " + dano);
     }
 
-    // ---------- Utilidades ----------
-    /// <summary>Acepta coma o punto como separador decimal, sin depender del idioma del sistema.</summary>
     static bool DeStringaNum(string texto, out float valor)
     {
         texto = texto.Replace(',', '.');

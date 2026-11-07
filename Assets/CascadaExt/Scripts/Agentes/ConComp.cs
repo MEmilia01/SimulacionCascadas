@@ -1,8 +1,6 @@
 using UnityEngine;
 
-/// <summary>
-/// FSM del conejo: si tiene hambre (vida &lt; umbral) caza Venus; si no, se reproduce lo antes posible.
-/// </summary>
+
 [RequireComponent(typeof(Rabbit), typeof(AgentMov), typeof(Sensor))]
 [RequireComponent(typeof(Reproducer))]
 public class ConComp : MonoBehaviour
@@ -47,7 +45,6 @@ public class ConComp : MonoBehaviour
         {
             case State.Wander: UpdateWander(); break;
             case State.HuntVenus: UpdateHunt(); break;
-                // Mating: espera a que termine el Reproducer
         }
     }
 

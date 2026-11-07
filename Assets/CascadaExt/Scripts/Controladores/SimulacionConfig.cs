@@ -18,8 +18,8 @@ public class SimulacionConfig : ScriptableObject
     public float spawnRadius = 20f;
     public float childSpawnRadius = 1.5f;
     public float venusChildSpawnRadius = 3f;
-    public float wanderRadius = 8f;        // NUEVO: radio al vagar
-    public float thinkInterval = 0.2f;     // NUEVO: cada cuánto "piensan" los cerebros
+    public float wanderRadius = 8f;        
+    public float thinkInterval = 0.2f;     
 
     [Header("Polilla")]
     public float mothMaxLife = 10f;
@@ -30,26 +30,30 @@ public class SimulacionConfig : ScriptableObject
     public bool mothReproduceWhenAbove = true;
     public float mothReproduceCost = 2f;
     public float mothVisionRadius = 8f;
-    public float mothEatDistance = 1.2f;         // NUEVO
-    public float mothFearDuration = 5f;          // NUEVO: segundos huyendo tras ver una muerte
-    public float mothFleeDistance = 6f;          // NUEVO
-    public float mothChildLife = 5f;             // NUEVO
-    public float mothMateWait = 1f;              // NUEVO
-    public float mothReproduceCooldown = 5f;     // NUEVO
-    public int mothMaxPopulation = 60;         // NUEVO: tope para evitar explosiones
+    public float mothEatDistance = 1.2f;       
+    public float mothFearDuration = 5f;        
+    public float mothFleeDistance = 6f;        
+    public float mothChildLife = 5f;           
+    public float mothMateWait = 1f;            
+    public float mothReproduceCooldown = 5f;   
+    public int mothMaxPopulation = 60;         
 
     [Header("Venus")]
     public float venusMaxLife = 20f;
     public float venusEatCost = 2f;
     public float venusMothGain = 5f;
     public float venusReproduceThreshold = 5f;
-    public float venusReproduceGain = 1f;
+    public float venusReproduceCost = 6f;
+    public float venusGracePeriod = 40f;
+    public float venusReproduceGain = 1f; //este se va a quitar
     public float venusReproduceCooldown = 5f;
     public float venusSenseRadius = 3f;
-    public float venusEatRadius = 1.5f;          // NUEVO (<= senseRadius)
-    [Range(0f, 1f)] public float venusCatchChance = 0.7f; // NUEVO: prob. de "casar" con una polilla que pasa
-    public float venusChildLife = 10f;           // NUEVO
-    public int venusMaxPopulation = 30;        // NUEVO
+    public float venusEatRadius = 1.5f;          
+    [Range(0f, 1f)] public float venusCatchChance = 0.7f; 
+    public float venusChildLife = 10f;         
+    public int venusMaxPopulation = 30;
+    public float venusUpkeepCost = 0.4f;      
+    public float venusUpkeepInterval = 1f;    
 
     [Header("Conejo")]
     public float rabbitMaxLife = 10f;
@@ -59,12 +63,12 @@ public class SimulacionConfig : ScriptableObject
     public float rabbitHungerThreshold = 4f;
     public float rabbitMateWait = 2f;
     public float rabbitVisionRadius = 10f;
-    public float rabbitBiteDamage = 5f;          // NUEVO: daño que hace a la Venus
-    public float rabbitEatRadius = 2f;           // NUEVO (>= radio del obstáculo + stoppingDistance)
-    public float rabbitReproduceCost = 3f;       // NUEVO
-    public float rabbitReproduceCooldown = 6f;   // NUEVO
-    public float rabbitChildLife = 5f;           // NUEVO
-    public int rabbitMaxPopulation = 30;       // NUEVO
+    public float rabbitBiteDamage = 5f;        
+    public float rabbitEatRadius = 2f;         
+    public float rabbitReproduceCost = 3f;     
+    public float rabbitReproduceCooldown = 6f; 
+    public float rabbitChildLife = 5f;         
+    public int rabbitMaxPopulation = 30;       
 
     [Header("Flores")]
     public bool respawnFlowers = true;

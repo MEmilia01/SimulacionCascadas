@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-/// <summary>Envoltorio cómodo del NavMeshAgent. Los "cerebros" solo usan estos métodos.</summary>
 [RequireComponent(typeof(NavMeshAgent))]
 public class AgentMov : MonoBehaviour
 {
@@ -9,7 +8,6 @@ public class AgentMov : MonoBehaviour
 
     void Awake() => Agent = GetComponent<NavMeshAgent>();
 
-    /// <summary>¿Se está desplazando realmente? (Creature lo usa para cobrar el coste de movimiento)</summary>
     public bool IsMoving =>
         Agent.enabled && Agent.isOnNavMesh && !Agent.isStopped &&
         (Agent.pathPending || Agent.remainingDistance > Agent.stoppingDistance);
@@ -20,7 +18,6 @@ public class AgentMov : MonoBehaviour
 
     public void SetSpeed(float speed) => Agent.speed = speed;
 
-    /// <summary>Ir a un punto (se ajusta al NavMesh más cercano). Devuelve false si no es válido.</summary>
     public bool MoveTo(Vector3 target)
     {
         if (!Agent.isOnNavMesh) return false;
@@ -30,7 +27,6 @@ public class AgentMov : MonoBehaviour
         return Agent.SetDestination(valid);
     }
 
-    /// <summary>Elige un punto aleatorio cercano y va hacia él.</summary>
     public bool Wander(float radius)
     {
         if (NavMesh.RandomPoint(transform.position, radius, out Vector3 point))
@@ -38,7 +34,6 @@ public class AgentMov : MonoBehaviour
         return false;
     }
 
-    /// <summary>Huye en dirección contraria a una amenaza. Si está bloqueado prueba ángulos laterales.</summary>
     public bool FleeFrom(Vector3 threat, float distance)
     {
         Vector3 away = transform.position - threat;

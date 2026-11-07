@@ -1,23 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// "Ojos" de la criatura: busca componentes de tipo T dentro de un radio,
-/// con ángulo de visión y línea de visión opcionales.
-/// </summary>
+
 public class Sensor : MonoBehaviour
 {
     [SerializeField] float radius = 8f;
     [SerializeField, Range(1f, 360f)] float viewAngle = 360f;
     [SerializeField] LayerMask defaultTargetMask;   // qué layers busca por defecto
-    [SerializeField] LayerMask obstructionMask;     // layers que bloquean la vista (Obstacle)
-    [SerializeField] float eyeHeight = 0.3f;
 
     readonly Collider[] buffer = new Collider[64];
 
     public float Radius { get => radius; set => radius = value; }
 
-    /// <summary>El objetivo más cercano de tipo T (o null).</summary>
     public T GetClosest<T>() where T : Component => GetClosest<T>(defaultTargetMask);
 
     public T GetClosest<T>(LayerMask mask) where T : Component
@@ -53,7 +47,7 @@ public class Sensor : MonoBehaviour
         return results.Count;
     }
 
-    /// <summary>¿Está este punto dentro del radio y del ángulo de visión, sin obstáculos?</summary>
+    /// <summary>¿Está este punto dentro del radio y del ángulo de visión?</summary>
     public bool CanSee(Vector3 point)
     {
         Vector3 toTarget = point - transform.position;
@@ -65,9 +59,7 @@ public class Sensor : MonoBehaviour
             if (Vector3.Angle(transform.forward, flat) > viewAngle * 0.5f) return false;
         }
 
-        Vector3 eye = transform.position + Vector3.up * eyeHeight;
-        Vector3 target = point + Vector3.up * eyeHeight;
-        return !Physics.Linecast(eye, target, obstructionMask);
+        return true;
     }
 
     bool IsValid<T>(T candidate) where T : Component

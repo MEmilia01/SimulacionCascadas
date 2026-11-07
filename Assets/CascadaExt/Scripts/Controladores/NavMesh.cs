@@ -1,10 +1,8 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-/// <summary>Utilidades estáticas para trabajar con el NavMesh.</summary>
 public static class NavMesh
 {
-    /// <summary>Punto válido del NavMesh más cercano a una posición.</summary>
     public static bool TrySample(Vector3 position, out Vector3 result, float maxDistance = 2f, int areaMask = UnityEngine.AI.NavMesh.AllAreas)
     {
         if (UnityEngine.AI.NavMesh.SamplePosition(position, out NavMeshHit hit, maxDistance, areaMask))
@@ -16,7 +14,6 @@ public static class NavMesh
         return false;
     }
 
-    /// <summary>Punto aleatorio sobre el NavMesh dentro de un radio (reintenta varias veces).</summary>
     public static bool RandomPoint(Vector3 center, float radius, out Vector3 result, int attempts = 20)
     {
         for (int i = 0; i < attempts; i++)
@@ -29,7 +26,6 @@ public static class NavMesh
         return false;
     }
 
-    /// <summary>¿Existe un camino completo entre dos puntos?</summary>
     public static bool IsReachable(Vector3 from, Vector3 to, int areaMask = UnityEngine.AI.NavMesh.AllAreas)
     {
         NavMeshPath path = new NavMeshPath();

@@ -2,14 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Spawnea el número de flores que indica el jugador y, opcionalmente,
-/// las repone para mantener ese número (así se controla el flujo de polillas).
-/// </summary>
+
 public class FlorSpawner : MonoBehaviour
 {
     [SerializeField] SimulacionConfig config;
-    [SerializeField] Transform holderflores; // opcional, para ordenar la jerarquía
+    [SerializeField] Transform holderflores; // para ordenar la jerarquía
 
     readonly List<GameObject> flores = new List<GameObject>();
     public int numflores;
@@ -22,7 +19,6 @@ public class FlorSpawner : MonoBehaviour
         get { flores.RemoveAll(f => f == null); return flores.Count; }
     }
 
-    /// <summary>Llamar desde GameManager / UI.</summary>
     public void Spawn(int count)
     {
         numflores = Mathf.Max(0, count);
@@ -32,7 +28,6 @@ public class FlorSpawner : MonoBehaviour
         if (config.respawnFlowers) masflores = StartCoroutine(RespawnLoop());
     }
 
-    /// <summary>Cambiar el objetivo en caliente (slider/input durante la partida).</summary>
     public void SetRespawnInterval(float seconds) => respawnInterval = Mathf.Max(0.05f, seconds);
 
 
